@@ -37,3 +37,18 @@ killall "Google Calendar" || echo "(warning)"
 
 rm -rf "/Applications/Google Calendar.app"
 mv "./apps/Google Calendar-darwin-x64/Google Calendar.app" /Applications
+
+# -------------- Google Slides ------------------
+
+nativefier \
+  "https://docs.google.com/presentation/" \
+  $OUTPUT_DIRECTORY  \
+  --internal-urls ".*okta.com.*" \
+  --single-instance \
+  --darwin-dark-mode-support \
+  --name "Google Slides"
+
+killall "Google Slides" || echo "(warning)"
+
+rm -rf "/Applications/Google Slides.app"
+mv "./apps/Google Slides-darwin-x64/Google Slides.app" /Applications

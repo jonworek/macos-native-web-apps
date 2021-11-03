@@ -3,8 +3,13 @@
 set -ex
 
 OUTPUT_DIRECTORY=apps/
+rm -rf $OUTPUT_DIRECTORY
+mkdir -p $OUTPUT_DIRECTORY
+touch $OUTPUT_DIRECTORY/.keep
 
 # TODO: loop over a list of apps
+
+# -------------- Circle CI ------------------
 
 nativefier \
   "https://app.circleci.com" \
@@ -17,6 +22,8 @@ killall "Circle CI" || echo "(warning)"
 
 rm -rf "/Applications/Circle CI.app"
 mv "./apps/Circle CI-darwin-x64/Circle CI.app" /Applications
+
+# -------------- Google Calendar ------------------
 
 nativefier \
   "https://calendar.google.com" \
